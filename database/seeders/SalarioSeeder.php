@@ -14,6 +14,7 @@ class SalarioSeeder extends Seeder
     public function run(): void
     {
         //
+        /* Por lo que vemos aqui en la tabla... */
         /* Aqui agregamos la parte del Seeder Run */
         DB::table('salarios')->insert([
             'salario' => '$0 - $499',

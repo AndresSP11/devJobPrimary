@@ -23,8 +23,9 @@
             dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500
             dark:focus:ring-indigo-600 rounded-md shadow-sm">
                 <option value="">--Selecciona un Rol--</option>
-                <option value="1">Developer - Obtener Empleo</option>
-                <option value="2">Recruiter - Publicar Empleos</option>
+                @foreach ($salarios as $salario)
+                    <option value="{{$salario->id}}">{{$salario->salario}}</option>
+                @endforeach
         </select>
     </div>
 
@@ -37,8 +38,9 @@
             dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500
             dark:focus:ring-indigo-600 rounded-md shadow-sm">
                 <option value="">--Selecciona una Categoria--</option>
-                <option value="1">Developer - Obtener Empleo</option>
-                <option value="2">Recruiter - Publicar Empleos</option>
+                @foreach ($categorias as $categoria)
+                    <option value="{{$categoria->id}}">{{$categoria->categoria}}</option>
+                @endforeach
         </select>
     </div>
 
