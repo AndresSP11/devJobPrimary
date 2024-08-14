@@ -102,5 +102,5 @@
     <x-primary-button class="mt-4">
         Crear Vacante
     </x-primary-button> 
-        
+    
 </form>
