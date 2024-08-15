@@ -13,6 +13,7 @@
                     {{-- Aqui ejecutamos la parte del liveWire --}}
                     <h1 class=" text-4xl font-bold text-center mb-10">Publicar Vacante</h1>
                     {{-- Almacenando la parte de lIVEWIRE --}}
+                    {{-- En este lado se pasa la creación  --}}
                     <div class=" md:flex md:justify-center p-5">
                         <livewire:crear-vacante/>
                     </div>
