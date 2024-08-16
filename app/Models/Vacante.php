@@ -9,6 +9,12 @@ class Vacante extends Model
 {
     use HasFactory;
 
+    
+    /* La parte de los casts es donde la columna de ultimo_dia se pasa por ahì */
+
+    protected $casts = [ 'ultimo_dia'=>'date'];
+
+
     protected $fillable=[
         'titulo',
         'salario_id',
