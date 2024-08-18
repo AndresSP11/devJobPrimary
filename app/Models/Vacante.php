@@ -26,5 +26,16 @@ class Vacante extends Model
         'user_id'
     ];
 
+    /* En este caso cuando nosotros tenemos uyna varaible de la parte de la vacante, no tenmos como mostrar los datos, pero 
+    tenemos que crear la relaciòn generada para mandarleaqui */
+
+    public function categoria(){
+        return $this->belongsTo(Categoria::class);
+    }
+
+    public function salario(){
+        return $this->belongsTo(Salario::class);    
+    }
+
 
 }

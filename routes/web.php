@@ -14,6 +14,13 @@ Route::get('/', function () {
 /* En la parte inicial de la creación de vacantes , vamos a elimnar ciertos parametros...{**function () {return view('dashboard');}??}  */
 Route::get('/dashboard',[VacanteController::class,'index'])->middleware(['auth', 'verified'])->name('vacantes.index');
 Route::get('/vacantes/create',[VacanteController::class,'create'])->middleware(['auth', 'verified'])->name('vacantes.create');
+Route::get('/vacantes/{vacante}/edit',[VacanteController::class,'edit'])->middleware(['auth', 'verified'])->name('vacantes.edit');
+/* Muestra sin NECESIDAD DE LOS MIDDLEWARE  REGISTRADOS */
+Route::get('/vacantes/{vacante}',[VacanteController::class,'show'])->name('vacantes.show');
+
+
+
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
