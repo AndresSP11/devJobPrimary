@@ -37,5 +37,15 @@ class Vacante extends Model
         return $this->belongsTo(Salario::class);    
     }
 
+    public function candidatos(){
+        /* En este caso significa que una vacante tiene muchos candidatos */
+        return $this->hasMany(Candidato::class);
+    }
+
+    public function reclutador(){
+        /* En este caso estamos obteniendo el user_id de LA COLUMANA de vacante*/
+        return $this->belongsTo(User::class,'user_id');
+    }
+
 
 }

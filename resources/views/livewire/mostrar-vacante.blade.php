@@ -38,4 +38,15 @@
             </p>
         </div>
     @endguest
+
+    {{-- HACIENDO LA PARTE COMO LOS POLICY`S PARA IDENTIFICAR 
+    TENIENDO EN CUENTA LOS POLICYS --}}
+
+    @can('create',App\Models\Vacante::class)
+        <p>Este es un reclutador</p>
+    @else
+         <livewire:postular-vacante :vacante="$vacante"/> 
+    @endcan
+    
+
 </div>

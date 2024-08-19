@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\NotificacionController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\VacanteController;
 use Illuminate\Support\Facades\Route;
@@ -18,7 +19,7 @@ Route::get('/vacantes/{vacante}/edit',[VacanteController::class,'edit'])->middle
 /* Muestra sin NECESIDAD DE LOS MIDDLEWARE  REGISTRADOS */
 Route::get('/vacantes/{vacante}',[VacanteController::class,'show'])->name('vacantes.show');
 
-
+Route::get('/notificaciones',NotificacionController::class);
 
 
 
