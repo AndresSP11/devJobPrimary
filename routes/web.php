@@ -19,7 +19,7 @@ Route::get('/vacantes/{vacante}/edit',[VacanteController::class,'edit'])->middle
 /* Muestra sin NECESIDAD DE LOS MIDDLEWARE  REGISTRADOS */
 Route::get('/vacantes/{vacante}',[VacanteController::class,'show'])->name('vacantes.show');
 
-Route::get('/notificaciones',NotificacionController::class);
+Route::get('/notificaciones',NotificacionController::class)->name('notificaciones');
 
 
 

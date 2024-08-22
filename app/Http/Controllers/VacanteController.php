@@ -13,6 +13,8 @@ class VacanteController extends Controller
      */
     public function index()
     {
+
+        
         /* AQUI HEMOS CAMBIADO LA DIRECCIÓN*/
         //
         $this->authorize('viewAny',Vacante::class);

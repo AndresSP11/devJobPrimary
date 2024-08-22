@@ -14,7 +14,7 @@ class VacantePolicy
     public function viewAny(User $user): bool
     {
         //
-        /* En esta parte se define quiens visitaraan */
+        /* En esta parte se define quiens visitaraan o mejor dicho los que tienen acceso a la parte de la vista OCUPADA */
         return $user->rol===2;
 
 
