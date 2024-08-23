@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('homeg');
 
 
 /* Dashboard la parte del verified */
@@ -19,7 +19,7 @@ Route::get('/vacantes/{vacante}/edit',[VacanteController::class,'edit'])->middle
 /* Muestra sin NECESIDAD DE LOS MIDDLEWARE  REGISTRADOS */
 Route::get('/vacantes/{vacante}',[VacanteController::class,'show'])->name('vacantes.show');
 
-Route::get('/notificaciones',NotificacionController::class)->name('notificaciones');
+Route::get('/notificaciones',NotificacionController::class)->middleware(['auth', 'verified','rol.reclutador'])->name('notificaciones');
 
 
 
