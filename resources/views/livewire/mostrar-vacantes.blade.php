@@ -15,7 +15,7 @@
 
                     <div class="flex flex-col md:flex-row gap-3 mt-2 md:mt-2 ">
                         
-                        <a href="{{route('vacantes.show',$vacante->id)}}" 
+                        <a href="{{route('candidatos.index',$vacante)}}" 
                         class=" bg-slate-300 py-2 px-4 rounded-lg text-white text-xs font-bold uppercase text-center md:h-8">
                             Candidatos
                         </a>

@@ -12,13 +12,17 @@
 
                 <!-- Navigation Links -->
                 @auth
+                    
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    <x-nav-link :href="route('vacantes.index')" :active="request()->routeIs('vacantes.index')">
-                        {{ __('Mis vacantes') }}
-                    </x-nav-link>
-                    <x-nav-link :href="route('vacantes.create')" :active="request()->routeIs('vacantes.create')">
-                        {{ __('Crear Vacante') }}
-                    </x-nav-link>
+                    @can('create',App\Models\Vacante::class)
+                        <x-nav-link :href="route('vacantes.index')" :active="request()->routeIs('vacantes.index')">
+                            {{ __('Mis vacantes') }}
+                        </x-nav-link>
+                        <x-nav-link :href="route('vacantes.create')" :active="request()->routeIs('vacantes.create')">
+                            {{ __('Crear Vacante') }}
+                        </x-nav-link>
+                    @endcan
+                    
                 </div>
                 @endauth
 
@@ -38,6 +42,7 @@
                         </a>
                     </div>
                         <p>
+                            {{-- En este caso la parte de Notificacion si es paro o impar --}}
                             @choice('Notificación|Notificaciones',auth()->user()->unreadNotifications->count())
                         </p>
                     @endif
@@ -103,12 +108,14 @@
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
         @auth
             <div class="pt-2 pb-3 space-y-1">
+                @can('create', App\Models\Vacante::class)
                 <x-responsive-nav-link :href="route('vacantes.index')" :active="request()->routeIs('vacantes.index')">
                     {{ __('Mis Vacantes') }}
                 </x-responsive-nav-link>
                 <x-responsive-nav-link :href="route('vacantes.create')" :active="request()->routeIs('vacantes.create')">
                     {{ __('Crear Vacante') }}
                 </x-responsive-nav-link>
+                @endcan
 
                 @if(auth()->user()->rol===2)
                 <a class=" mr-2 w-7 h-7 bg-indigo-400 font-bold 
@@ -118,7 +125,7 @@
                    justify-center" href="{{ route('notificaciones')}}">
                     {{ auth()->user()->unreadNotifications->count() }}
                 </a>
-            @endif
+                @endif
             </div>
         @endauth
 

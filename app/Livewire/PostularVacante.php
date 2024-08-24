@@ -52,6 +52,7 @@ class PostularVacante extends Component
         /* Creando notificacion */
 
         /* Esto hace la creación de la parte de Nuevo Usuario, que permite obtener y enviar Email. Según al usuario despues de mandar o hacer el Envio en el CV */
+        /* Al parecer la automatización de la parte de lreclutador que esta tomando al modelo y los datos del Candidatos y el email lo hace por aqui */
         $this->vacante->reclutador->notify(new NuevoCandidato($this->vacante->id,$this->vacante->titulo,auth()->user()->id));
 
 

@@ -38,7 +38,7 @@ class Vacante extends Model
     }
 
     public function candidatos(){
-        /* En este caso significa que una vacante tiene muchos candidatos */
+        /* En este caso significa que una vacante tiene muchos candidatos se va obtener todo los candidatos*/
         return $this->hasMany(Candidato::class);
     }
 

@@ -16,6 +16,7 @@ class RolUsuario
     public function handle(Request $request, Closure $next): Response
     {
         if($request->user()->rol===1){
+            /* Rol 2 significa rol reclutador, rol 1 te redireccion al home , osea / */
             // En este caso que no sea el rol 2, reireccionar al usuario del Home                               
             return redirect()->route('home');
         }
