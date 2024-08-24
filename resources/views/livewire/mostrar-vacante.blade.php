@@ -31,10 +31,11 @@
             </p>
         </div>
     </div>
+
     @guest
         <div class=" mt-5 bg-gray-50 border border-dashed p-5 text-center rounded-xl">
             <p>
-                ¿Deseas aplicar a esta vacante? <a href="" class="font-bold text-indigo-300">Obten una cuenta y aplica a esta y otras vacantes</a>
+                ¿Deseas aplicar a esta vacante? <a href="{{route('login')}}" class="font-bold text-indigo-300">Obten una cuenta y aplica a esta y otras vacantes</a>
             </p>
         </div>
     @endguest
@@ -45,7 +46,9 @@
     @can('create',App\Models\Vacante::class)
         <p>Este es un reclutador</p>
     @else
+        @if(auth()->user())
          <livewire:postular-vacante :vacante="$vacante"/> 
+        @endif
     @endcan
     
 

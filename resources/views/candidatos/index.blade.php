@@ -16,17 +16,26 @@
                     {{-- Almacenando la parte de lIVEWIRE --}}
                     {{-- En este lado se pasa la creación  --}}
                     <div class=" md:flex md:justify-center p-5">
-                        <ul class=" divide-y divide-gray-200">
+                        <ul class=" divide-y divide-gray-200 w-full">
                             @forelse ($vacante->candidatos as $candidato )
                                 <li class=" p-3 flex items-center">
                                     <div class=" flex-1">
-                                        <pre>
-                                            {{$candidato->user}}
-                                        </pre>
+                                        <p class=" text-xl font-medium text-gray-400">{{$candidato->user->name}}</p>
+                                        <p class=" text-xl font-medium text-gray-400">{{$candidato->user->email}}</p>
+                                        <p class=" text-xl font-medium text-gray-400">
+                                                Dìa que Postulo: <span>{{$candidato->created_at->diffForHumans()}}</span></p>
                                     </div>
 
                                     <div>
-
+                                        <a 
+                                        class=" inline-flex items-center shadow-sm px-2 py-0.5 border border-gray-300 text-sm
+                                        loading-5 font-medium bg-white hover:bg-gray-400 text-gray-900 rounded-xl"
+                                        href="{{ asset('storage/cv/'.$candidato->cv) }}"
+                                        target="_blank"
+                                        rel="noreferrer noopener"
+                                        >
+                                            Ver CV
+                                        </a>
                                     </div>
                                 </li>
                             @empty

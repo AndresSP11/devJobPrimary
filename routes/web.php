@@ -1,14 +1,13 @@
 <?php
 
 use App\Http\Controllers\CandidatosController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\NotificacionController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\VacanteController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('welcome');
-})->name('home');
+Route::get('/', HomeController::class)->name('home');
 
 
 /* Dashboard la parte del verified */
@@ -20,6 +19,7 @@ Route::get('/vacantes/{vacante}/edit',[VacanteController::class,'edit'])->middle
 /* Muestra sin NECESIDAD DE LOS MIDDLEWARE  REGISTRADOS */
 Route::get('/vacantes/{vacante}',[VacanteController::class,'show'])->name('vacantes.show');
 
+/* En este caso es una punta de la parte  */
 Route::get('/notificaciones',NotificacionController::class)->middleware(['auth', 'verified','rol.reclutador'])->name('notificaciones');
 
 Route::get('/candidatos/{vacante}',[CandidatosController::class,'index'])->name('candidatos.index');

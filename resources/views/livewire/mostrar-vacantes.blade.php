@@ -1,6 +1,6 @@
 <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
     {{-- @if (count($vacantes)>0) --}}
-    
+    <div class="divide-y divide-gray-200">
         @forelse ( $vacantes as $vacante )
                 <div class=" p-6 text-gray-900 dark:text-gray-100 md:flex md:justify-between">
                     <div class="">
@@ -17,7 +17,7 @@
                         
                         <a href="{{route('candidatos.index',$vacante)}}" 
                         class=" bg-slate-300 py-2 px-4 rounded-lg text-white text-xs font-bold uppercase text-center md:h-8">
-                            Candidatos
+                            <span class=" text-gray-500">{{$vacante->candidatos->count()}}</span> Candidatos
                         </a>
                         {{-- Pasandolo la parte de vacante --}}
                         <a href="{{route('vacantes.edit',$vacante->id)}}" 
@@ -38,7 +38,7 @@
             @empty
                 <p class=" p-2 font-bold text-slate-200 px-5 text-center">No hay vacantes que Mostrar</p>    
             @endforelse
-
+                </div>
             <div class=" mb-3 px-6">
                 {{$vacantes->links()}}
             </div>

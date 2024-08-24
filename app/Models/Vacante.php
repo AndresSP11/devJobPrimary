@@ -39,7 +39,7 @@ class Vacante extends Model
 
     public function candidatos(){
         /* En este caso significa que una vacante tiene muchos candidatos se va obtener todo los candidatos*/
-        return $this->hasMany(Candidato::class);
+        return $this->hasMany(Candidato::class)->orderBy('created_at','DESC');
     }
 
     public function reclutador(){
