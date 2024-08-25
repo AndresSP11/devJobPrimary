@@ -22,10 +22,23 @@
 
             @enderror
 
+            
             <x-primary-button class=" mt-3">
                 {{__("Postular a la Vacante")}}
             </x-primary-button>        
+
+
         </form>
+
+        <div wire:loading wire:target="postularme" class="sk-chase">
+                <div class="sk-chase-dot"></div>
+                <div class="sk-chase-dot"></div>
+                <div class="sk-chase-dot"></div>
+                <div class="sk-chase-dot"></div>
+                <div class="sk-chase-dot"></div>
+                <div class="sk-chase-dot"></div>
+        </div>
+
     @enderror
     
 </div>
